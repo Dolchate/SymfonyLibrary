@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ManhwaRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ManhwaRepository::class)]
@@ -21,6 +22,9 @@ class Manhwa
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $author = null;
+
+    #[ORM\Column(type: Types::ARRAY)]
+    private array $dayOfWeek = [];
 
     public function getId(): ?int
     {
@@ -59,6 +63,18 @@ class Manhwa
     public function setAuthor(?string $author): static
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getDayOfWeek(): array
+    {
+        return $this->dayOfWeek;
+    }
+
+    public function setDayOfWeek(array $dayOfWeek): static
+    {
+        $this->dayOfWeek = $dayOfWeek;
 
         return $this;
     }
