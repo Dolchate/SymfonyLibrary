@@ -1,0 +1,9 @@
+<div>
+    <h1>{{ novel.title }}</h1>
+    <p>{{ novel.description }}</p>
+    <p>{{ novel.author }}</p>
+        {% for day in novel.dayOfWeek %}
+            <p>{{ day }}</p>
+        {% endfor %}
+</div>
+
