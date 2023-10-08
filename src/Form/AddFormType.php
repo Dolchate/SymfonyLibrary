@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Readable;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,13 +21,45 @@ class AddFormType extends AbstractType
                     'Manhwa' => 'manhwa',
                     'Manga' => 'manga',
                 ],
+                'attr' => [
+                    'class' => 'form-field form-control',
+                ],
             ])
-            ->add('title', TextType::class)
+            ->add('title', TextType::class,
+                [
+                    'attr' => [
+                        'class' => 'form-field form-control',
+                    ],
+                ])
             ->add('description', TextType::class, [
                 'required' => false,
+                'attr' => [
+                    'class' => 'form-field form-control',
+                ],
             ])
             ->add('author', TextType::class, [
                 'required' => false,
+                'attr' => [
+                    'class' => 'form-field form-control',
+                ],
+            ])
+            ->add('daysOfWeek', ChoiceType::class, [
+                'label' => 'Coming out days',
+                'choices' => [
+                    'Monday' => 'monday',
+                    'Tuesday' => 'tuesday',
+                    'Wednesday' => 'wednesday',
+                    'Thursday' => 'thursday',
+                    'Friday' => 'friday',
+                    'Saturday' => 'saturday',
+                    'Sunday' => 'sunday',
+                ],
+                'multiple' => true,
+                'expanded' => true,
+                'required' => true,
+                'attr' => [
+                    'class' => 'days-of-week-checkboxes',
+                ],
             ])
         ;
     }

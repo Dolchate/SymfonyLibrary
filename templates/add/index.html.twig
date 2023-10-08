@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block body %}
-    <div class="middleForm" >
+    <div class="middleForm">
 
         <h1 class="h3 mb-3 font-weight-normal">You're adding</h1>
 
@@ -18,29 +18,36 @@
         <div class="form-label">
             {{ form_label(addForm.type) }}
         </div>
-        <div class="form-field form-control ">
-            {{ form_widget(addForm.type) }}
-        </div>
+        {{ form_widget(addForm.type) }}
 
         <div class="form-label">
             {{ form_label(addForm.title) }}
         </div>
-        <div class="form-field form-control ">
-            {{ form_widget(addForm.title) }}
-        </div>
+        {{ form_widget(addForm.title) }}
 
         <div class="form-label">
             {{ form_label(addForm.description) }}
         </div>
-        <div class="form-field form-control ">
-            {{ form_widget(addForm.description) }}
-        </div>
+        {{ form_widget(addForm.description) }}
 
         <div class="form-label">
             {{ form_label(addForm.author) }}
         </div>
-        <div class="form-field form-control ">
-            {{ form_widget(addForm.author) }}
+        {{ form_widget(addForm.author) }}
+
+        <div class="form-label">
+            {{ form_label(addForm.daysOfWeek) }}
+        </div>
+        {#        <div class="form-field form-control "> #}
+        {#            {{ form_widget(addForm.daysOfWeek) }} #}
+        {#        </div> #}
+        <div class="days-of-week-checkboxes">
+            {% for choice_label, choice_value in addForm.daysOfWeek %}
+                <label>
+                    {{ form_widget(choice_value) }}
+                    {{ choice_value.vars.label }}
+                </label>
+            {% endfor %}
         </div>
 
 

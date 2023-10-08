@@ -30,3 +30,12 @@
 .form-label{
     margin-top: 2%;
 }
+
+.days-of-week-checkboxes label {
+    display: block; /* Display labels and checkboxes inline */
+    margin-right: 10px; /* Add spacing between labels and checkboxes */
+}
+
+.days-of-week-checkboxes input[type="checkbox"] {
+    vertical-align: middle; /* Align checkboxes vertically with labels */
+}

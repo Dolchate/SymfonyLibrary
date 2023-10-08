@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block body %}
-    <div class="middleForm" >
+    <div class="middleForm">
 
         <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
 
@@ -29,9 +29,7 @@
         <div class="form-label">
             {{ form_label(registrationForm.email) }}
         </div>
-        <div class="form-field form-control ">
-            {{ form_widget(registrationForm.email) }}
-        </div>
+        {{ form_widget(registrationForm.email) }}
 
 
         {#        {{ form_row(registrationForm.plainPassword, {label: 'Password'}) }} #}
@@ -40,17 +38,15 @@
             {#            {{ form_label(registrationForm.plainPassword) }} #}
             Password
         </div>
-        <div class="form-field form-control">
-            {{ form_widget(registrationForm.plainPassword) }}
-        </div>
+        {{ form_widget(registrationForm.plainPassword) }}
 
         {#        {{ form_row(registrationForm.agreeTerms) }} #}
-        <div class="form-label">
 
-        <span>
-            {{ form_label(registrationForm.agreeTerms) }}
-            </span>
+        <div class="form-label">
             {{ form_widget(registrationForm.agreeTerms) }}
+            <span>
+                {{ form_label(registrationForm.agreeTerms) }}
+            </span>
         </div>
 
 

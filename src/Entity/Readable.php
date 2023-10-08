@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ReadableRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ReadableRepository::class)]
@@ -24,6 +25,9 @@ class Readable
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $author = null;
+
+    #[ORM\Column(type: Types::ARRAY)]
+    private array $daysOfWeek = [];
 
     public function getId(): ?int
     {
@@ -74,6 +78,18 @@ class Readable
     public function setAuthor(?string $author): static
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getDaysOfWeek(): array
+    {
+        return $this->daysOfWeek;
+    }
+
+    public function setDaysOfWeek(array $daysOfWeek): static
+    {
+        $this->daysOfWeek = $daysOfWeek;
 
         return $this;
     }

@@ -22,6 +22,7 @@ class AddController extends AbstractController
         $form = $this->createForm(AddFormType::class, $readable);
 
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
 
             if ($form->get('type')->getData() == 'novel') {
@@ -29,18 +30,21 @@ class AddController extends AbstractController
                 $novel->setTitle($form->get('title')->getData());
                 $novel->setDescription($form->get('description')->getData());
                 $novel->setAuthor($form->get('author')->getData());
+                $novel->setDayOfWeek($form->get('daysOfWeek')->getData());
                 $entityManager->persist($novel);
             } elseif ($form->get('type')->getData() == 'manhwa'){
                 $manhwa = new Manhwa();
                 $manhwa->setTitle($form->get('title')->getData());
                 $manhwa->setDescription($form->get('description')->getData());
                 $manhwa->setAuthor($form->get('author')->getData());
+                $manhwa->setDayOfWeek($form->get('daysOfWeek')->getData());
                 $entityManager->persist($manhwa);
             } elseif ($form->get('type')->getData() == 'manga'){
                 $manga = new Manga();
                 $manga->setTitle($form->get('title')->getData());
                 $manga->setDescription($form->get('description')->getData());
                 $manga->setAuthor($form->get('author')->getData());
+                $manga->setDayOfWeek($form->get('daysOfWeek')->getData());
                 $entityManager->persist($manga);
             }
             $entityManager->flush();
