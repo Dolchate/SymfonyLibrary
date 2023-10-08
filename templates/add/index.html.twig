@@ -1,20 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AddController!{% endblock %}
+{% block title %}Add{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('/css/add.css') }}">
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="middleForm" >
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/app/src/Controller/AddController.php'|file_link(0) }}">src/Controller/AddController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/app/templates/add/index.html.twig'|file_link(0) }}">templates/add/index.html.twig</a></code></li>
-    </ul>
-</div>
+        {{ form_errors(addForm) }}
+
+        {{ form_start(addForm) }}
+
+        <div class="form-label">
+            {{ form_label(addForm.type) }}
+        </div>
+        <div class="form-field form-control ">
+            {{ form_widget(addForm.type) }}
+        </div>
+
+        <div class="form-label">
+            {{ form_label(addForm.title) }}
+        </div>
+        <div class="form-field form-control ">
+            {{ form_widget(addForm.title) }}
+        </div>
+
+        <div class="form-label">
+            {{ form_label(addForm.description) }}
+        </div>
+        <div class="form-field form-control ">
+            {{ form_widget(addForm.description) }}
+        </div>
+
+        <div class="form-label">
+            {{ form_label(addForm.author) }}
+        </div>
+        <div class="form-field form-control ">
+            {{ form_widget(addForm.author) }}
+        </div>
+
+
+        <button type="submit" class="btn btn-register">Add</button>
+        {{ form_end(addForm) }}
+    </div>
 {% endblock %}
