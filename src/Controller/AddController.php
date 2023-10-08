@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Form\AddFormType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Readable;
@@ -11,20 +13,22 @@ use App\Entity\Readable;
 class AddController extends AbstractController
 {
     #[Route('/add', name: 'add')]
-    public function index(): Response
+    public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         $readable = new Readable();
         $form = $this->createForm(AddFormType::class, $readable);
 
+        $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $readable = $form->getData();
 
-            $entityManager = $this->getDoctrine()->getManager();
+
+
             $entityManager->persist($readable);
             $entityManager->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('add');
         }
+
         return $this->render('add/index.html.twig', [
             'controller_name' => 'AddController',
         ]);
