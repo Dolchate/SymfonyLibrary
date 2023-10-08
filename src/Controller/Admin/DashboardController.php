@@ -2,6 +2,9 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Manga;
+use App\Entity\Manhwa;
+use App\Entity\Novel;
 use App\Entity\Users;
 
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -45,5 +48,8 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Users', 'fas fa-list', Users::class);
+        yield MenuItem::linkToCrud('Novels', 'fas fa-list', Novel::class);
+        yield MenuItem::linkToCrud('Manhwas', 'fas fa-list', Manhwa::class);
+        yield MenuItem::linkToCrud('Mangas', 'fas fa-list', Manga::class);
     }
 }

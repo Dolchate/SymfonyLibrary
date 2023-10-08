@@ -49,7 +49,7 @@ class AddController extends AbstractController
         }
 
         return $this->render('add/index.html.twig', [
-            'controller_name' => 'AddController',
+            'addForm' => $form->createView(),
         ]);
     }
 }
