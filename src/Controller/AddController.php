@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Manga;
+use App\Entity\Manhwa;
+use App\Entity\Novel;
 use App\Form\AddFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,12 +24,28 @@ class AddController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-
-
-            $entityManager->persist($readable);
+            if ($form->get('type')->getData() == 'novel') {
+                $novel = new Novel();
+                $novel->setTitle($form->get('title')->getData());
+                $novel->setDescription($form->get('description')->getData());
+                $novel->setAuthor($form->get('author')->getData());
+                $entityManager->persist($novel);
+            } elseif ($form->get('type')->getData() == 'manhwa'){
+                $manhwa = new Manhwa();
+                $manhwa->setTitle($form->get('title')->getData());
+                $manhwa->setDescription($form->get('description')->getData());
+                $manhwa->setAuthor($form->get('author')->getData());
+                $entityManager->persist($manhwa);
+            } elseif ($form->get('type')->getData() == 'manga'){
+                $manga = new Manga();
+                $manga->setTitle($form->get('title')->getData());
+                $manga->setDescription($form->get('description')->getData());
+                $manga->setAuthor($form->get('author')->getData());
+                $entityManager->persist($manga);
+            }
             $entityManager->flush();
 
-            return $this->redirectToRoute('add');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('add/index.html.twig', [
