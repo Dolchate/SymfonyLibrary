@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Novel{% endblock %}
+
+{% block body %}
+    <h1>Novel</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ novel.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ novel.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ novel.description }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ novel.author }}</td>
+            </tr>
+            <tr>
+                <th>DayOfWeek</th>
+                <td>{{ novel.dayOfWeek ? novel.dayOfWeek|join(', ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_novel_index') }}">back to list</a>
+
+    <a href="{{ path('app_novel_edit', {'id': novel.id}) }}">edit</a>
+
+    {{ include('novel/_delete_form.html.twig') }}
+{% endblock %}
