@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\NovelRepository;
 use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: NovelRepository::class)]

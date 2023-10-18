@@ -1,20 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello NovelsController!{% endblock %}
+{% block title %}novels list{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/app/src/Controller/NovelsController.php'|file_link(0) }}">src/Controller/NovelsController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/app/templates/novels/index.html.twig'|file_link(0) }}">templates/novels/index.html.twig</a></code></li>
-    </ul>
-</div>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/styleListing.css') }}">
+    {% endblock %}
+    {# Partie Novels #}
+    <div class="border border-light border-2 rounded p-2" style="margin-top: 7%; background: #383838;">
+        <h1 style="color: #373dc2">Novel List</h1>
+        {% include 'assets/listing.html.twig' with {'readables' : novels, 'route' : "novels_show"} %}
+        <div class="text-center">
+            {{ knp_pagination_render(novels) }}
+        </div>
+        <p class="ml-5" style="color: whitesmoke">Tired of only reading novels ? Check out our <a href="{{ path('home') }}" style="color: whitesmoke">other categories!</a></p>
+    </div>
 {% endblock %}

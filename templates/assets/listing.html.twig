@@ -1,0 +1,5 @@
+<div class="novel-list">
+    {% for readable in readables %}
+        {% include 'assets/vignette.html.twig' with {'readable' : readable, 'route' : route} %}
+    {% endfor %}
+</div>

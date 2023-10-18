@@ -1,0 +1,47 @@
+/* styles.css */
+.novel-list {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.vignette {
+    border: 1px solid #555;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #444;
+}
+
+.vignette h1 {
+    font-size: 20px;
+    margin: 0;
+    color: #fff;
+}
+
+.vignette p {
+    margin: 5px 0;
+    color: #bbb;
+}
+
+.vignette p:last-child {
+    margin-bottom: 0;
+}
+
+.vignette p.day {
+    display: inline;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Additional styles for dark buttons or links */
+.button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
