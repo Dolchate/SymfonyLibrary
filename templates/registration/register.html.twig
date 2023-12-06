@@ -3,7 +3,7 @@
 {% block title %}Register{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('/css/register.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -25,22 +25,26 @@
         {{ form_start(registrationForm) }}
 
 
-        {#        {{ form_row(registrationForm.email) }} #}
+        <div class="form-label">
+            {{ form_label(registrationForm.firstname) }}
+        </div>
+        {{ form_widget(registrationForm.firstname) }}
+
+
+        <div class="form-label">
+            {{ form_label(registrationForm.name) }}
+        </div>
+        {{ form_widget(registrationForm.name) }}
+
         <div class="form-label">
             {{ form_label(registrationForm.email) }}
         </div>
         {{ form_widget(registrationForm.email) }}
 
 
-        {#        {{ form_row(registrationForm.plainPassword, {label: 'Password'}) }} #}
-
         <div class="form-label">
-            {#            {{ form_label(registrationForm.plainPassword) }} #}
-            Password
         </div>
         {{ form_widget(registrationForm.plainPassword) }}
-
-        {#        {{ form_row(registrationForm.agreeTerms) }} #}
 
         <div class="form-label">
             {{ form_widget(registrationForm.agreeTerms) }}

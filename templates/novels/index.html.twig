@@ -10,9 +10,8 @@
     <div class="border border-light border-2 rounded p-2" style="margin-top: 7%; background: #383838;">
         <h1 style="color: #373dc2">Novel List</h1>
         {% include 'assets/listing.html.twig' with {'readables' : novels, 'route' : "novels_show"} %}
-        <div class="text-center">
-            {{ knp_pagination_render(novels) }}
-        </div>
-        <p class="ml-5" style="color: whitesmoke">Tired of only reading novels ? Check out our <a href="{{ path('home') }}" style="color: whitesmoke">other categories!</a></p>
+        {{ knp_pagination_render(novels) }}
+        <p class="ml-5 mb-4" style="color: whitesmoke">Tired of only reading novels ? Check out our <a
+                href="{{ path('home') }}" style="color: whitesmoke">other categories!</a></p>
     </div>
 {% endblock %}

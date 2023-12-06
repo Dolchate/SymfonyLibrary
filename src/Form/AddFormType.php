@@ -6,6 +6,7 @@ use App\Entity\Readable;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -31,9 +32,10 @@ class AddFormType extends AbstractType
                         'class' => 'form-field form-control',
                     ],
                 ])
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'required' => false,
                 'attr' => [
+                    'rows' => '3',
                     'class' => 'form-field form-control',
                 ],
             ])

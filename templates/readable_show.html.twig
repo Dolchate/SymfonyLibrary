@@ -3,27 +3,27 @@
 {% block title %}{{ readable.title }}{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/readableStyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/readableFocus.css') }}">
 {% endblock %}
 
 {% block body %}
-    <div class="border border-light border-2 rounded p-2" style="margin-top: 7%; background: #383838;">
+    <div class="vignette">
+        <h1 class="title">{{ readable.title }}</h1>
+        <p class="author">Author: {{ readable.author }}</p>
 
-        <h1 class="readable-title">{{ readable.title }}</h1>
-        <p class="readable-author">Author: {{ readable.author }}</p>
-
-        <div class="readable-description">
+        <div class="section">
             <h2>Description</h2>
             <p>{{ readable.description }}</p>
         </div>
 
-        <div class="readable-schedule">
+        <div class="section">
             <h2>Schedule</h2>
-            <ul>
+            <ul class="schedule">
                 {% for day in readable.dayOfWeek %}
-                    <li class="day">{{ day }}</li>
+                    <li>{{ day }}</li>
                 {% endfor %}
             </ul>
         </div>
     </div>
 {% endblock %}
+

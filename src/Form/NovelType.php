@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Novel;
+use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +14,7 @@ class NovelType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('description')
+            ->add('description',TextType::class)
             ->add('author')
             ->add('dayOfWeek')
         ;

@@ -8,7 +8,6 @@
     <link rel="icon"
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
     <link rel="stylesheet" href={{ asset("css/bootstrap.min.css") }}>
-    <link rel="stylesheet" href={{ asset("css/baseStyle.css") }}>
     <link rel="stylesheet" href={{ asset("css/styles.css") }}>
     {% block stylesheets %}
     {% endblock %}
@@ -18,10 +17,25 @@
 </head>
 <body style="background: #2d2d2d">
 {{ include("assets/navbar.html.twig") }}
-<div class="bodyAll" style="margin: 4rem;">
-    {% block body %}{% endblock %}
+<div class="bodyAll w-75" style="position: absolute; margin: 4rem; left: 50%; transform: translate(-50%);">
+    <style>
+        ::-webkit-scrollbar {
+            width: 5px; /* You can adjust the width to your preference */
+        }
+
+        /* Define the scroll bar thumb (the draggable part) */
+        ::-webkit-scrollbar-thumb {
+            background: #888; /* Color of the thumb */
+            border-radius: 10px; /* Rounded corners for the thumb */
+        }
+
+        /* Define the scroll bar thumb on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #666; /* Color of the thumb on hover */
+        }
+    </style>
+    {% block body %}
+    {% endblock %}
 </div>
-
-
 </body>
 </html>

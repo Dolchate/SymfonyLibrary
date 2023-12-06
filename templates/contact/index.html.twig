@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/add.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="middleForm">
+
+        <h1 class="h3 mb-3 font-weight-normal">Contact us!</h1>
+
+        {{ form_errors(contactForm) }}
+
+        {{ form_start(contactForm) }}
+
+        <div class="form-label">
+            {{ form_label(contactForm.title) }}
+        </div>
+        {{ form_widget(contactForm.title) }}
+
+        <div class="form-label">
+            {{ form_label(contactForm.content) }}
+        </div>
+        {{ form_widget(contactForm.content) }}
+
+        <button type="submit" class="btn btn-add">Send</button>
+        {{ form_end(contactForm) }}
+    </div>
+{% endblock %}

@@ -18,6 +18,7 @@ class NovelsController extends AbstractController
 
         $novels = $entityManager->getRepository(Novel::class)->findAll();
 
+
         $paginator = $paginator->paginate(
             $novels,
             $request->query->getInt('page', 1),  // Page number in the request
